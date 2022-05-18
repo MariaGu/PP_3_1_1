@@ -1,5 +1,6 @@
 package com.gubina.pp_3_1_1;
 
+import com.gubina.pp_3_1_1.controller.UserController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
