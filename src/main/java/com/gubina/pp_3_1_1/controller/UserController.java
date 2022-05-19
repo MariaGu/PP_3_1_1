@@ -5,10 +5,7 @@ import com.gubina.pp_3_1_1.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -53,7 +50,7 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @GetMapping("/{id}/user-delete")
+    @DeleteMapping("/{id}/user-delete")
     public String deleteById(@PathVariable("id") int id){
         userService.deleteById(id);
         return "redirect:/users";
