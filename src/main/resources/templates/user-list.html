@@ -21,9 +21,6 @@
         <td th:text="${user.surName}"></td>
         <td th:text="${user.email}"></td>
         <td>
-<!--            <a th:href="@{/{id}/user-update(id=${user.id})}">Edit</a>-->
-<!--            <a th:href="@{/{id}/user-delete(id=${user.id})}">Delete</a>-->
-
             <form th:action="@{${user.id} + '/user-update'}">
                 <input type="submit" class="buttonEdit" value="Edit"/>
             </form>
@@ -36,6 +33,5 @@
     </tr>
 </table>
 <a th:href="@{/user-create}">Add new User</a>
-</form>
 </body>
 </html>
