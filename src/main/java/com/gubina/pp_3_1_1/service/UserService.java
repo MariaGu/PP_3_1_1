@@ -1,36 +1,19 @@
 package com.gubina.pp_3_1_1.service;
 
 import com.gubina.pp_3_1_1.model.User;
-import com.gubina.pp_3_1_1.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
+public interface UserService {
 
-@Service
-public class UserService {
+    User findById(Integer id);
 
-    private final UserRepository userRepository;
+    List<User> findAll();
 
-    @Autowired
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    void addUser(User user);
 
-    public User findById(Integer id) {
-        return userRepository.getOne(id);
-    }
+    void updateUser(User user);
 
-    public List<User> findAll() {
-        return userRepository.findAll();
-    }
-
-    public User saveUser(User user) {
-        return userRepository.save(user);
-    }
-
-    public void deleteById(Integer id) {
-        userRepository.deleteById(id);
-    }
+    void deleteById(Integer id);
 }

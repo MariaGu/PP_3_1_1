@@ -2,6 +2,7 @@ package com.gubina.pp_3_1_1.controller;
 
 import com.gubina.pp_3_1_1.model.User;
 import com.gubina.pp_3_1_1.service.UserService;
+import com.gubina.pp_3_1_1.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +16,11 @@ public class UserController {
     private final UserService userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserServiceImpl userService) {
         this.userService = userService;
     }
 
-    @GetMapping("/users")
+    @GetMapping(value = {"/users", "", "/"})
     public String findAll(Model model) {
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
@@ -34,7 +35,7 @@ public class UserController {
 
     @PostMapping
     public String createUser(@ModelAttribute("user") User user) {
-        userService.saveUser(user);
+        userService.addUser(user);
         return "redirect:/users";
     }
 
@@ -46,7 +47,7 @@ public class UserController {
 
     @PostMapping("/{id}/user-update")
     public String updateUser(@ModelAttribute("user") User user) {
-        userService.saveUser(user);
+        userService.updateUser(user);
         return "redirect:/users";
     }
 
